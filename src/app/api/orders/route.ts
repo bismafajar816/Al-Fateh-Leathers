@@ -119,7 +119,7 @@ export async function POST(req: NextRequest) {
 
   // Fire-and-forget emails — don't block the checkout response on SMTP latency/errors.
   sendOrderConfirmationEmail(order.toObject()).catch((e) => console.error(e));
-  sendAdminNewOrderNotification(order.toObject()).catch((e) => console.error(e));
+  sendAdminNewOrderNotification(order.toObject(), settings.ownerEmail).catch((e) => console.error(e));
 
   return NextResponse.json({ order }, { status: 201 });
 }

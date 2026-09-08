@@ -9,7 +9,7 @@ function getTransporter() {
   transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: Number(process.env.SMTP_PORT || 587),
-    secure: process.env.SMTP_SECURE === "true",
+    secure: process.env.SMTP_SECURE === "false" ? false : Boolean(process.env.SMTP_SECURE), // true for 465, false for other ports
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS
@@ -94,8 +94,8 @@ export async function sendOrderConfirmationEmail(order: IOrder) {
   await sendMail(order.customer.email, `Order Confirmation #${order.orderNumber}`, wrap("Order received", body));
 }
 
-export async function sendAdminNewOrderNotification(order: IOrder) {
-  const to = process.env.ADMIN_NOTIFY_EMAIL;
+export async function sendAdminNewOrderNotification(order: IOrder, recipient?: string) {
+  const to = recipient || process.env.ADMIN_NOTIFY_EMAIL || process.env.OWNER_EMAIL;
   if (!to) return;
   const body = `
     <p>New order <strong>#${order.orderNumber}</strong> from ${order.customer.fullName} (${order.customer.email}, ${order.customer.phone}).</p>

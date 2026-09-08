@@ -37,7 +37,7 @@ export default function SiteHeader() {
                   {CATEGORIES.map((c) => (
                     <Link
                       key={c}
-                      href={`/shop/men/${c}`}
+                      href={`/shop/${g}/${c}`}
                       className="block px-4 py-2 text-sm text-leather-800 hover:bg-leather-50"
                     >
                       {CATEGORY_LABELS[c]}
