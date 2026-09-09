@@ -70,7 +70,7 @@ export default function SiteFooter() {
             <address className="mt-4 space-y-3 not-italic text-sm text-[#b09a88]">
               <p className="flex items-start gap-3">
                 <span className="mt-0.5 text-[#b8944c]">📍</span>
-                <span>96-D, Small Industrial Estate, Sahiwal</span>
+                <span>95-D, Small Industrial Estate, Sahiwal</span>
               </p>
               <p className="flex items-center gap-3">
                 <span className="text-[#b8944c]">📞</span>
