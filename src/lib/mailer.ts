@@ -1,35 +1,26 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { formatPrice, ORDER_STATUS_LABELS } from "@/lib/constants";
 import type { IOrder } from "@/models/Order";
 
-let transporter: nodemailer.Transporter | null = null;
-
-function getTransporter() {
-  if (transporter) return transporter;
-  transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT || 587),
-    secure: process.env.SMTP_SECURE === "false" ? false : Boolean(process.env.SMTP_SECURE), // true for 465, false for other ports
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS
-    }
-  });
-  return transporter;
-}
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 async function sendMail(to: string, subject: string, html: string) {
-  if (!process.env.SMTP_HOST || !process.env.SMTP_USER) {
-    console.warn("SMTP not configured — skipping email:", subject, "to", to);
+  if (!resend) {
+    console.warn("Resend not configured — skipping email:", subject, "to", to);
     return;
   }
   try {
-    await getTransporter().sendMail({
-      from: process.env.SMTP_FROM || process.env.SMTP_USER,
+    const { data, error } = await resend.emails.send({
+      from: `Al Fateh Leathers <${process.env.SMTP_FROM || "onboarding@resend.dev"}>`,
       to,
       subject,
       html
     });
+    if (error) {
+      console.error("Failed to send email:", error);
+    } else {
+      console.log("Mail sent:", data?.id);
+    }
   } catch (err) {
     console.error("Failed to send email:", err);
   }
