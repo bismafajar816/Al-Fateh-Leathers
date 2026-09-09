@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { CurrencyProvider } from "@/components/CurrencyProvider";
-// @ts-expect-error Next.js handles this global stylesheet import at build time.
 import "./globals.css";
 
 export const metadata: Metadata = {
