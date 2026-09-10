@@ -48,7 +48,7 @@ export default async function HomePage() {
           <div className="flex flex-col justify-center">
             <p className="text-sm uppercase tracking-[0.2em] text-brass">Genuine Leather, Since Generations</p>
             <h1 className="mt-3 font-serif text-4xl leading-tight md:text-5xl">
-              Al Fateh <span className="text-brass">Leathers</span>
+              Al Fateh <span className="text-brass">Leather</span> Garments
             </h1>
             <p className="mt-4 max-w-md text-leather-200">
               Handcrafted leather jackets, wallets, belts and gloves for men, women and kids. Timeless quality, made

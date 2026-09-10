@@ -70,15 +70,15 @@ export default function SiteFooter() {
             <address className="mt-4 space-y-3 not-italic text-sm text-[#b09a88]">
               <p className="flex items-start gap-3">
                 <span className="mt-0.5 text-[#b8944c]">📍</span>
-                <span>95-D, Small Industrial Estate, Sahiwal</span>
+                <span>88-D, Small Industrial Estate, Sahiwal</span>
               </p>
               <p className="flex items-center gap-3">
                 <span className="text-[#b8944c]">📞</span>
                 <a
-                  href="tel:03124748617"
+                  href="tel:+923124748617"
                   className="transition-colors duration-200 hover:text-[#e8d5b5]"
                 >
-                  0312 4748617
+                  +92 312 4748617
                 </a>
               </p>
               <p className="flex items-center gap-3">

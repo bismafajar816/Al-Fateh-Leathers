@@ -3,7 +3,7 @@ import { CurrencyProvider } from "@/components/CurrencyProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Al Fateh Leathers — Genuine Leather Jackets, Wallets, Belts & Gloves",
+  title: "Al Fateh Leather Garments — Genuine Leather Jackets, Wallets, Belts & Gloves",
   description:
     "Al Fateh Leathers offers genuine leather jackets, wallets, belts and gloves for men, women and kids. Prices in EUR."
 };
