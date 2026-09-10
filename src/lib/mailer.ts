@@ -11,7 +11,7 @@ async function sendMail(to: string, subject: string, html: string) {
   }
   try {
     const { data, error } = await resend.emails.send({
-      from: `Al Fateh Leather Garments <admin@mail.al-fateh-leather-garments.store>`,
+      from: `Al Fateh Leather Garments <admin@al-fateh-leather-garments.store>`,
       to,
       subject,
       html
