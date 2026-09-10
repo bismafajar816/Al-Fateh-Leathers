@@ -80,31 +80,33 @@ export default async function GenderCategoryPage({
       </h1>
       <p className="mb-6 text-leather-500">{products.length} products</p>
 
-      <div className="mb-8 flex flex-wrap gap-2">
-        {CATEGORIES.map((c) => (
-          <Link
-            key={c}
-            href={`/shop/${gender}/${c}`}
-            className={`rounded-full border px-4 py-1.5 text-sm ${
-              c === category
-                ? "border-leather-800 bg-leather-800 text-leather-50"
-                : "border-leather-300 text-leather-800 hover:bg-leather-800 hover:text-leather-50"
-            }`}
-          >
-            {CATEGORY_LABELS[c]}
-          </Link>
-        ))}
-      </div>
+      <div className="sticky top-[72px] z-30 -mx-0 border-b border-leather-200/80 bg-leather-50/95 pb-4 pt-4 backdrop-blur-sm">
+        <div className="mb-6 flex flex-wrap gap-2">
+          {CATEGORIES.map((c) => (
+            <Link
+              key={c}
+              href={`/shop/${gender}/${c}`}
+              className={`rounded-full border px-4 py-1.5 text-sm ${
+                c === category
+                  ? "border-leather-800 bg-leather-800 text-leather-50"
+                  : "border-leather-300 text-leather-800 hover:bg-leather-800 hover:text-leather-50"
+              }`}
+            >
+              {CATEGORY_LABELS[c]}
+            </Link>
+          ))}
+        </div>
 
-      <ShopFilters
-        action={`/shop/${gender}/${category}`}
-        gender={gender}
-        category={category}
-        query={query}
-        minPrice={minPrice}
-        maxPrice={maxPrice}
-        sort={sort}
-      />
+        <ShopFilters
+          action={`/shop/${gender}/${category}`}
+          gender={gender}
+          category={category}
+          query={query}
+          minPrice={minPrice}
+          maxPrice={maxPrice}
+          sort={sort}
+        />
+      </div>
 
       {products.length === 0 ? (
         <p className="text-leather-500">No products in this category yet.</p>

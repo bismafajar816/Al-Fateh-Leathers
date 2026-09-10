@@ -66,27 +66,29 @@ export default async function GenderPage({
       <h1 className="mb-2 font-serif text-3xl text-leather-900">{GENDER_LABELS[gender]}</h1>
       <p className="mb-6 text-leather-500">{products.length} products</p>
 
-      <div className="mb-8 flex flex-wrap gap-2">
-        {CATEGORIES.map((c) => (
-          <Link
-            key={c}
-            href={`/shop/${gender}/${c}`}
-            className="rounded-full border border-leather-300 px-4 py-1.5 text-sm text-leather-800 hover:bg-leather-800 hover:text-leather-50"
-          >
-            {CATEGORY_LABELS[c]}
-          </Link>
-        ))}
-      </div>
+      <div className="sticky top-[72px] z-30 -mx-0 border-b border-leather-200/80 bg-leather-50/95 pb-4 pt-4 backdrop-blur-sm">
+        <div className="mb-6 flex flex-wrap gap-2">
+          {CATEGORIES.map((c) => (
+            <Link
+              key={c}
+              href={`/shop/${gender}/${c}`}
+              className="rounded-full border border-leather-300 px-4 py-1.5 text-sm text-leather-800 hover:bg-leather-800 hover:text-leather-50"
+            >
+              {CATEGORY_LABELS[c]}
+            </Link>
+          ))}
+        </div>
 
-      <ShopFilters
-        action={`/shop/${gender}`}
-        gender={gender}
-        selectedCategory={selectedCategory}
-        query={query}
-        minPrice={minPrice}
-        maxPrice={maxPrice}
-        sort={sort}
-      />
+        <ShopFilters
+          action={`/shop/${gender}`}
+          gender={gender}
+          selectedCategory={selectedCategory}
+          query={query}
+          minPrice={minPrice}
+          maxPrice={maxPrice}
+          sort={sort}
+        />
+      </div>
 
       {products.length === 0 ? (
         <p className="text-leather-500">No products in this department yet.</p>

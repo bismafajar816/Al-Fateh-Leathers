@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 async function getProduct(slug: string): Promise<IProduct | null> {
   await connectDB();
   const product = await Product.findOne({ slug, isActive: true }).lean();
-  return product as unknown as IProduct | null;
+  return product ? (product as unknown as IProduct) : null;
 }
 
 export default async function ProductDetailPage({ params }: { params: { slug: string } }) {

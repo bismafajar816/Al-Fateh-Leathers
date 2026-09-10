@@ -8,21 +8,21 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-md bg-leather-800 px-5 py-2.5 text-sm font-medium text-leather-50 transition hover:bg-leather-700 disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply inline-flex items-center justify-center rounded-xl bg-leather-800 px-5 py-2.5 text-sm font-medium text-leather-50 shadow-sm transition hover:bg-leather-700 disabled:cursor-not-allowed disabled:opacity-50;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-md border border-leather-800 px-5 py-2.5 text-sm font-medium text-leather-800 transition hover:bg-leather-800 hover:text-leather-50;
+  @apply inline-flex items-center justify-center rounded-xl border border-leather-800 px-5 py-2.5 text-sm font-medium text-leather-800 transition hover:bg-leather-800 hover:text-leather-50;
 }
 
 .input {
-  @apply w-full rounded-md border border-leather-300 bg-white px-3 py-2 text-sm focus:border-leather-600 focus:outline-none focus:ring-1 focus:ring-leather-600;
+  @apply w-full rounded-xl border border-leather-300 bg-leather-50/80 px-3 py-2.5 text-sm text-leather-900 shadow-sm transition focus:border-leather-700 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brass/25;
 }
 
 .label {
-  @apply mb-1 block text-xs font-medium uppercase tracking-wide text-leather-700;
+  @apply mb-1.5 block text-[10px] font-semibold uppercase tracking-[0.16em] text-leather-600;
 }
 
 .card {
-  @apply rounded-lg border border-leather-100 bg-white shadow-sm;
+  @apply rounded-xl border border-leather-100 bg-white shadow-sm;
 }
