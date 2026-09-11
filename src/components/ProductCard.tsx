@@ -17,17 +17,14 @@ export default function ProductCard({ product }: { product: IProduct }) {
               src={img}
               alt={product.name}
               fill
-              unoptimized
               sizes="(max-width: 768px) 50vw, 25vw"
               className={`object-cover transition-opacity duration-300 ${hoverImg ? "group-hover:opacity-0" : "group-hover:scale-105"}`}
             />
-            {/* On clothing sites, hovering a product card commonly previews the second photo (e.g. a back view). */}
             {hoverImg && (
               <Image
                 src={hoverImg}
                 alt=""
                 fill
-                unoptimized
                 sizes="(max-width: 768px) 50vw, 25vw"
                 className="object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               />

@@ -15,8 +15,8 @@ export default function ProductGallery({ images, productName }: { images: string
             src={activeImage}
             alt={`${productName}${activeIndex > 0 ? ` — image ${activeIndex + 1}` : ""}`}
             fill
-            unoptimized
             priority
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
           />
         ) : (
@@ -37,7 +37,13 @@ export default function ProductGallery({ images, productName }: { images: string
                 i === activeIndex ? "ring-leather-800" : "ring-transparent hover:ring-leather-300"
               }`}
             >
-              <Image src={img} alt={`${productName} thumbnail ${i + 1}`} fill unoptimized className="object-cover" />
+              <Image
+                src={img}
+                alt={`${productName} thumbnail ${i + 1}`}
+                fill
+                sizes="(max-width: 768px) 20vw, 10vw"
+                className="object-cover"
+              />
             </button>
           ))}
         </div>

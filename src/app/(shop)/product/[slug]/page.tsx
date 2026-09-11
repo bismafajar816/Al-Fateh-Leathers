@@ -6,7 +6,7 @@ import ProductGallery from "@/components/ProductGallery";
 import ProductPurchaseBox from "@/components/ProductPurchaseBox";
 import { GENDER_LABELS, CATEGORY_LABELS } from "@/lib/constants";
 import type { IProduct } from "@/models/Product";
-
+import { generateProductSchema } from "@/lib/schema";
 export const dynamic = "force-dynamic";
 
 async function getProduct(slug: string): Promise<IProduct | null> {
@@ -18,6 +18,7 @@ async function getProduct(slug: string): Promise<IProduct | null> {
 export default async function ProductDetailPage({ params }: { params: { slug: string } }) {
   const product = await getProduct(params.slug);
   if (!product) notFound();
+  const productSchema = generateProductSchema(product);
 
   return (
     <div>

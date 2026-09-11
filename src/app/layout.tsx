@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CurrencyProvider } from "@/components/CurrencyProvider";
+import { generateOrganizationSchema } from "@/lib/schema";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -9,9 +10,17 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const orgSchema = generateOrganizationSchema();
+
   return (
     <html lang="en">
-      <body><CurrencyProvider>{children}</CurrencyProvider></body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+        <CurrencyProvider>{children}</CurrencyProvider>
+      </body>
     </html>
   );
 }

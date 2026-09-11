@@ -4,9 +4,11 @@ const nextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "**.r2.dev" },
       { protocol: "https", hostname: "**.r2.cloudflarestorage.com" },
-      { protocol: "https", hostname: "**" } // allows a custom R2/CDN domain too
-    ]
-  }
+      // Uncomment and edit when you set up a custom image domain:
+      // { protocol: "https", hostname: "images.al-fateh-leather-garments.store" },
+    ],
+    formats: ["image/avif", "image/webp"],
+  },
 };
 
 module.exports = nextConfig;
