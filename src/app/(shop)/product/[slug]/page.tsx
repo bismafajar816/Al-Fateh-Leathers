@@ -21,7 +21,12 @@ export default async function ProductDetailPage({ params }: { params: { slug: st
   const productSchema = generateProductSchema(product);
 
   return (
-    <div>
+  <div>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+    />
+      {/* ...rest of your existing JSX unchanged... */}
       <nav className="mb-6 text-xs text-leather-500">
         <Link href="/" className="hover:underline">
           Home
