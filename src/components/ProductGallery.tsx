@@ -16,6 +16,7 @@ export default function ProductGallery({ images, productName }: { images: string
             alt={`${productName}${activeIndex > 0 ? ` — image ${activeIndex + 1}` : ""}`}
             fill
             priority
+            unoptimized
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
           />
@@ -41,6 +42,7 @@ export default function ProductGallery({ images, productName }: { images: string
                 src={img}
                 alt={`${productName} thumbnail ${i + 1}`}
                 fill
+                unoptimized
                 sizes="(max-width: 768px) 20vw, 10vw"
                 className="object-cover"
               />
