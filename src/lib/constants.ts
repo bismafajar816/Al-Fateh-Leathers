@@ -1,7 +1,7 @@
 export const GENDERS = ["men", "women", "kids"] as const;
 export type Gender = (typeof GENDERS)[number];
 
-export const CATEGORIES = ["jackets", "wallets", "belts", "gloves"] as const;
+export const CATEGORIES = ["jackets", "wallets", "belts", "gloves", "long-coats", "vests"] as const;
 export type Category = (typeof CATEGORIES)[number];
 
 export const GENDER_LABELS: Record<Gender, string> = {
@@ -14,7 +14,9 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   jackets: "Jackets",
   wallets: "Wallets",
   belts: "Belts",
-  gloves: "Gloves"
+  gloves: "Gloves",
+  "long-coats": "Long Coats",
+  vests: "Vests"
 };
 
 export const CURRENCY = process.env.STORE_CURRENCY || "EUR";

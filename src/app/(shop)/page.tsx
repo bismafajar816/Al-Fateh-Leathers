@@ -77,12 +77,12 @@ export default async function HomePage() {
 
       <section>
         <h2 className="mb-6 text-center font-serif text-2xl text-leather-900">Shop by Category</h2>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {CATEGORIES.map((c) => (
             <Link
               key={c}
               href={`/shop/category/${c}`}
-              className="card group flex flex-col items-center justify-center gap-2 p-8 text-center transition duration-200 hover:-translate-y-1 hover:border-brass hover:bg-leather-50 hover:shadow-lg"
+              className="card group flex min-h-[140px] flex-col items-center justify-center gap-2 p-8 text-center transition duration-200 hover:-translate-y-1 hover:border-brass hover:bg-leather-50 hover:shadow-lg"
             >
               <span className="font-serif text-lg text-leather-900 transition-colors group-hover:text-brass">{CATEGORY_LABELS[c]}</span>
               <span className="text-xs uppercase tracking-wide text-leather-500 transition-colors group-hover:text-leather-800">Men · Women · Kids</span>
